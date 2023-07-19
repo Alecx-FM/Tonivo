@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Cabana Tonivo</title>
+</head>
+<body>
+  <div class="background-main">
+    <ul class="navigation-bar">
+      <li class="navigatie-butoane"><a href="Tonivo_Main.html">Home</a></li>
+      <li class="navigatie-butoane"><a href="Tonivo_About.html">About</a></li>
+      <li class="navigatie-butoane"><a href="Tonivo_Contact.html">Contact</a></li>
+      <li class="cont-buton"><a href="Tonivo_Rezervare.html"><b>Rezervare</b></a></li>
+    </ul>
+  </div>
+  <div class="rezervare">
+    <img class="poza-rezervare" src="Sursa poze/Rezervare.jpg" width="45%" height="97%" alt="">
+    <h1>Rezervare</h1>
+    <p class="pret-noapte-text">De la 
+        <br>
+        1300 de lei
+        <br>
+        pe noape</p>  
+    <form action="Rezervare.php" method="post">
+        <label for="fname">Nume:</label><br>
+        <input type="text" id="fname" name="fname" placeholder="Nume" class="wide-table"required><br>
+        <label for="lname">Prenume:</label><br>
+        <input type="text" id="lname" name="lname" placeholder="Prenume" class="wide-table"required><br><br>
+        <label for="mail">Mail:</label><br>
+        <input type="text" id="mail" name="mail" placeholder="Mail" class="wide-table"required><br>
+        <label for="telefon">Telefon:</label><br>
+        <input type="text" id="telefon" name="telefon" placeholder="07" maxlength="10" class="wide-table" required><br>
+        <label for="adresa">Adresa:</label><br>
+        <input type="text" id="adresa" name="adresa" placeholder="Strada" class="wide-table" required><br><br>
+        <label for="checkin">Check-in</label>
+        <input type="date" id="checkin" name="checkin" required><br><br>
+        <label for="checkout">Check-out</label>
+        <input type="date" id="checkout" name="checkout" min="" required><br><br>
+        <label for="numar-persoane">Numar de persoane:</label>
+        <input type="number" id="numarpersoane" name="numarpersoane" min="1" max="10" required><br><br>
+        <input type="submit" value="Submit">
+      </form>
+      <p class="maxim-persoane-text">
+        Capacitatea cabanei este de maxim 10 persoane!
+      </p>
+      <img class="dotari-poza" src="Sursa poze/Dotari.png" width="20%" height="20%" alt="">
+</div>
+</body>
+</html>
+<script>
+    // Obțineți data curentă
+    var currentDate = new Date().toISOString().slice(0, 10);
+  
+    // Setează valoarea min a câmpului "Check-in" la data curentă
+    document.getElementById("checkin").setAttribute("min", currentDate);
+  
+    // Setează valoarea min a câmpului "Check-out" la data aleasă în câmpul "Check-in"
+    document.getElementById("checkin").addEventListener("input", function() {
+      document.getElementById("checkout").setAttribute("min", this.value);
+    });
+  </script>
